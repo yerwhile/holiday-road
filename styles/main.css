@@ -1,0 +1,18 @@
+#selectBoxes {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid coral
+}
+
+#itineraries {
+    display: flex;
+}
+
+#itineraryPreview, #savedItineraries {
+    border: 1px solid coral;
+    width: 50%
+}
+
+#weatherForecast {
+    border: 1px solid coral
+}
