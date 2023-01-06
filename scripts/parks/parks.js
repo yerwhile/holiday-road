@@ -4,7 +4,7 @@
     format function turns each park into an option with a value equal to the park id
 */
 
-import { getData } from "../dataAccess.js"
+import { getData, mainContainer, applicationState } from "../dataAccess.js"
 
 const formatParks = (park) => {
     return `
@@ -21,3 +21,12 @@ export const selectParks = () => {
             ${parks.map(park => formatParks(park)).join("")}
         </select>`
 }
+
+mainContainer.addEventListener(
+    "change",
+    (event) => {
+        if(event.target.id === "parkSelect") {
+            applicationState.chosenPark = document.querySelector("select[name='parks']").value
+            document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
+        }
+    })

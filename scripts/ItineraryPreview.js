@@ -1,6 +1,15 @@
 import { getData, applicationState } from "./dataAccess.js";
 
 export const ItineraryPreview = () => {
+    const parkData = getData("parks");
+    const parks = parkData.data;
+    const selectedPark = parks.find(park => park.id === applicationState.chosenPark);
+    let selectedParkName = "";
+
+    if (applicationState.chosenPark !== undefined) {
+        selectedParkName = selectedPark.fullName;
+    }
+
     const attractions = getData("attractions");
     let selectedAttractionName = "";
     for(const attraction of attractions) {
@@ -8,6 +17,7 @@ export const ItineraryPreview = () => {
             selectedAttractionName = attraction.name;
         }
     }
+    
     const eateries = getData("eateries");
     let selectedEateryName = "";
     for(const eatery of eateries) {
@@ -15,6 +25,8 @@ export const ItineraryPreview = () => {
             selectedEateryName = eatery.businessName;
         }
     }
-    return `<div id="attractionPreview">Selected Attraction: ${selectedAttractionName}</div>
-            <div id="eateryPreview">Selected Eatery: ${selectedEateryName}</div>`
+    return `
+        <div id="parkPreview">Selected Park: ${selectedParkName}</div>
+        <div id="attractionPreview">Selected Attraction: ${selectedAttractionName}</div>
+        <div id="eateryPreview">Selected Eatery: ${selectedEateryName}</div>`
 }
