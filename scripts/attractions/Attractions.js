@@ -15,7 +15,7 @@ export const Attractions = () => {
     </select>`
 }
 
-mainContainer.addEvenListener(
+mainContainer.addEventListener(
     "change",
     (event) => {
         if(event.target.id === "attractions") {
