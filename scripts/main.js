@@ -11,6 +11,7 @@ const render = () => {
     fetchAttractions()
         .then(() => fetchEateries())
         .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/parks?api_key=${Settings.npsKey}`, "parks"))
+        .then(() => fetchData("itineraries"))
         .then(
             () => {
                 mainContainer.innerHTML = HolidayRoad()
