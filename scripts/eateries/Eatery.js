@@ -8,7 +8,7 @@ export const Eatery = () => {
     html += '<option value="0"></option>'
     const eateryArray = eateries.map(
         eatery => {
-            return `<option value="${eatery.id}">${eatery.name}</option>`
+            return `<option value="${eatery.id}">${eatery.businessName}</option>`
         }
     )
     html +=eateryArray .join("")
