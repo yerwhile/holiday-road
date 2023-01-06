@@ -1,5 +1,6 @@
 // import APIkeys from "./Settings.js";
 import { Attractions } from "./attractions/Attractions.js"
+import { ItineraryPreview } from "./ItineraryPreview.js"
 
 export const HolidayRoad = () => {
     return `
@@ -11,8 +12,7 @@ export const HolidayRoad = () => {
     </div>
     <div id="itineraries">
         <div id="itineraryPreview">
-            Itinerary Choice One
-            Itinerary Choice Two
+            ${ItineraryPreview()}
         </div>
         <div id="savedItineraries">
             Saved Itinerary One
