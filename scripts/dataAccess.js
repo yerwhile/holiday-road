@@ -2,15 +2,26 @@ const mainContainer = document.querySelector("#container");
 
 const applicationState = { };
 
-const API = "http://localhost:8088"
+export const localAPI = "http://localhost:8088"
 
-// take a parameter and take it from json, put it into applicationState
+// take a parameter and take it from json database, put it into applicationState
 export const fetchData = (data) => {
-    return fetch(`${API}/${data}`)
+    return fetch(`${localAPI}/${data}`)
         .then(response => response.json())
         .then(
             (dataItems) => {
                 applicationState[data] = dataItems;
+            }
+        )
+}
+
+// take two parameters, one for the API you want to fetch, the other for what you want to name it, and put it into applicationState
+export const fetchForeignData = (API, dataName) => {
+    return fetch(`${API}`)
+        .then(response => response.json())
+        .then(
+            (dataItems) => {
+                applicationState[dataName] = dataItems;
             }
         )
 }
@@ -25,7 +36,7 @@ export const postData = (data, userData) => {
         body: JSON.stringify(userData)
     }
 
-    return fetch(`${API}/${data}`, fetchOptions)
+    return fetch(`${localAPI}/${data}`, fetchOptions)
         .then(response => response.json())
         .then(() => {
             // Runs custom event to re-render page
@@ -35,7 +46,7 @@ export const postData = (data, userData) => {
 
 // delete data from json database
 export const deleteData = (data, id) => {
-    return fetch(`${API}/${data}/${id}`, { method: "DELETE" })
+    return fetch(`${localAPI}/${data}/${id}`, { method: "DELETE" })
         .then(
             () => {
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
@@ -45,5 +56,8 @@ export const deleteData = (data, id) => {
 
 // take a parameter and get it from the application state
 export const getData = (data) => {
-    return applicationState[data].map(dataItems => ({ ...dataItems }));
+    if (Array.isArray(data)) {
+        return applicationState[data].map(dataItems => ({ ...dataItems }));
+    }
+    return JSON.parse(JSON.stringify(applicationState[data]));
 }

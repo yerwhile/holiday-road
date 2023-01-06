@@ -1,12 +1,12 @@
 // import APIkeys from "./Settings.js";
 
+import { selectParks } from "./parks/parks.js"
+
 export const HolidayRoad = () => {
     return `
     <div id="logo">LOGO</div>
     <div id="selectBoxes">
-        <select name="parks" id="parkSelect">
-            <option value="">Choose Option</option>
-        </select>
+        ${selectParks()}
         <select name="bizarrerie" id="bizarrerieSelect">
             <option value="">Choose Option</option>
         </select>
