@@ -3,6 +3,7 @@ import { fetchAttractions } from "./attractions/AttractionProvider.js"
 import { fetchEateries } from "./eateries/EateryProvider.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 import Settings from "./Settings.js"
+import { ItineraryPreview } from "./ItineraryPreview.js"
 
 export const mainContainer = document.querySelector("#container")
 
@@ -24,5 +25,12 @@ mainContainer.addEventListener(
     "stateChanged",
     customEvent => {
         render()
+    }
+)
+
+mainContainer.addEventListener(
+    "dropdownChanged",
+    customEvent => {
+        document.querySelector(`#itineraryPreview`).innerHTML = ItineraryPreview();
     }
 )
