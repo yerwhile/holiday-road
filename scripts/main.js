@@ -3,6 +3,8 @@ import { fetchEateries } from "./eateries/EateryProvider.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 import Settings from "./Settings.js"
 import { ItineraryPreview } from "./ItineraryPreview.js"
+import { Attractions } from "./attractions/Attractions.js"
+import { Eateries } from "./eateries/Eatery.js"
 
 export const mainContainer = document.querySelector("#container")
 
@@ -31,5 +33,13 @@ mainContainer.addEventListener(
     "dropdownChanged",
     customEvent => {
         document.querySelector(`#itineraryPreview`).innerHTML = ItineraryPreview();
+    }
+)
+
+mainContainer.addEventListener(
+    "parkSelected",
+    customEvent => {
+        document.querySelector('#attractionsSelect').innerHTML = Attractions();
+        document.querySelector('#eaterySelect').innerHTML = Eateries();
     }
 )

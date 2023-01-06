@@ -28,5 +28,6 @@ mainContainer.addEventListener(
         if(event.target.id === "parkSelect") {
             applicationState.chosenPark = document.querySelector("select[name='parks']").value
             document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
+            document.querySelector("#container").dispatchEvent(new CustomEvent("parkSelected"))
         }
     })
