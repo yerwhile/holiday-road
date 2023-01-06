@@ -1,6 +1,6 @@
-const mainContainer = document.querySelector("#container");
+export const mainContainer = document.querySelector("#container");
 
-const applicationState = { };
+export const applicationState = { };
 
 export const localAPI = "http://localhost:8088"
 
