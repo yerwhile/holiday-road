@@ -5,7 +5,7 @@ export const Eateries = () => {
 
     let html = ""
     html += '<select name="eaterySelect" id="eatery">'
-    html += '<option value="0">Chose Eatery</option>'
+    html += '<option value="0">Choose Eatery</option>'
     const eateryArray = eateries.map(
         eatery => {
             return `<option value="${eatery.id}">${eatery.businessName}</option>`
