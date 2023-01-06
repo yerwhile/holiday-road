@@ -4,6 +4,7 @@ import { selectParks } from "./parks/parks.js"
 import { Attractions } from "./attractions/Attractions.js"
 import { ItineraryPreview } from "./ItineraryPreview.js"
 import { Eateries } from "./eateries/Eatery.js"
+import { savedItineraries } from "./savedItineraries.js"
 
 
 export const HolidayRoad = () => {
@@ -23,9 +24,7 @@ export const HolidayRoad = () => {
             ${ItineraryPreview()}
         </div>
         <div id="savedItineraries">
-            Saved Itinerary One
-            Saved Itinerary Two
-            Saved Itinerary Three
+            ${savedItineraries()}
         </div>
     </div>
     <div id="weatherForecast">

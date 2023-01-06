@@ -2,15 +2,27 @@
   "itineraries": [
     {
       "parkId": "3350C18C-8E07-487B-930E-37AD873D31AD",
-      "attractionId": "9",
-      "eateryId": "25",
+      "attractionId": 9,
+      "eateryId": 25,
       "id": 1
     },
     {
       "parkId": "3350C18C-8E07-487B-930E-37AD873D31AD",
-      "attractionId": "17",
-      "eateryId": "25",
+      "attractionId": 17,
+      "eateryId": 25,
       "id": 2
+    },
+    {
+      "parkId": "C4E1A9A4-D121-4734-94FA-7788A93C2AAA",
+      "attractionId": 10,
+      "eateryId": 21,
+      "id": 3
+    },
+    {
+      "parkId": "C08AD828-98FF-478E-A63C-614E7534274B",
+      "attractionId": 5,
+      "eateryId": 6,
+      "id": 4
     }
   ]
 }
