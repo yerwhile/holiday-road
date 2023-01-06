@@ -1,6 +1,8 @@
 // import APIkeys from "./Settings.js";
 import { Attractions } from "./attractions/Attractions.js"
 import { ItineraryPreview } from "./ItineraryPreview.js"
+import { Eateries } from "./eateries/Eatery.js"
+
 
 export const HolidayRoad = () => {
     return `
@@ -8,7 +10,8 @@ export const HolidayRoad = () => {
     <div id="selectBoxes">
         [PARKS()]
         ${Attractions()}
-        [EATERIES()]
+        ${Eateries()}
+
     </div>
     <div id="itineraries">
         <div id="itineraryPreview">
