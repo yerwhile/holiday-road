@@ -1,4 +1,5 @@
-import { getData, applicationState, postData } from "./dataAccess.js";
+
+import { getData, applicationState, mainContainer, postData } from "./dataAccess.js";
 
 export const ItineraryPreview = () => {
     const parks = getData("parks").data;
@@ -11,23 +12,23 @@ export const ItineraryPreview = () => {
 
     const attractions = getData("attractions");
     let selectedAttractionName = "";
-    for(const attraction of attractions) {
-        if(attraction.id === parseInt(applicationState.chosenAttraction)) {
+    for (const attraction of attractions) {
+        if (attraction.id === parseInt(applicationState.chosenAttraction)) {
             selectedAttractionName = attraction.name;
         }
     }
-    
+
     const eateries = getData("eateries");
     let selectedEateryName = "";
-    for(const eatery of eateries) {
-        if(eatery.id === parseInt(applicationState.chosenEatery)) {
+    for (const eatery of eateries) {
+        if (eatery.id === parseInt(applicationState.chosenEatery)) {
             selectedEateryName = eatery.businessName;
         }
     }
     return `
-        <div id="parkPreview">Selected Park: ${selectedParkName}</div>
-        <div id="attractionPreview">Selected Attraction: ${selectedAttractionName}</div>
-        <div id="eateryPreview">Selected Eatery: ${selectedEateryName}</div>
+        <div id="parkPreview">Selected Park: ${selectedParkName} <button class="details-btn" id="details-btn-park">Details</button></div>
+        <div id="attractionPreview">Selected Attraction: ${selectedAttractionName} <button class="details-btn" id="details-btn-attraction">Details</button></div>
+        <div id="eateryPreview">Selected Eatery: ${selectedEateryName} <button class="details-btn" id="details-btn-eatery">Details</button></div>
         <button class="button" id="submitItinerary">Save Itinerary</button>`
 }
 
@@ -37,6 +38,7 @@ export const ItineraryPreview = () => {
     check if any fields are empty
     create object with appropriate data
     send it to saved itinerary list in database
+
 */
 
 document.addEventListener("click", e => {
@@ -59,3 +61,50 @@ document.addEventListener("click", e => {
         }
     }      
 })
+
+
+
+mainContainer.addEventListener(
+    "click",
+    (event) => {
+        if (event.target.id === "details-btn-eatery") {
+            const eateries = getData("eateries");
+            let selectedEateryDetails = "";
+            for (const eatery of eateries) {
+                if (eatery.id === parseInt(applicationState.chosenEatery)) {
+                    selectedEateryDetails = eatery.description;
+                    window.alert(`${selectedEateryDetails}}`)
+                }
+            }
+        }
+    })
+
+mainContainer.addEventListener(
+    "click",
+    (event) => {
+        if (event.target.id === "details-btn-attraction") {
+            const attractions = getData("attractions");
+            let selectedAttractionDetails = "";
+            for (const attraction of attractions) {
+                if (attraction.id === parseInt(applicationState.chosenAttraction)) {
+                    selectedAttractionDetails = attraction.description;
+                    window.alert(`${selectedAttractionDetails}}`)
+                }
+            }
+        }
+    })
+
+    mainContainer.addEventListener(
+        "click",
+        (event) => {
+            if (event.target.id === "details-btn-park") {
+                const parks = getData("parks").data;
+                let selectedParkDetails = "";
+                for (const park of parks) {
+                    if (park.id === applicationState.chosenPark) {
+                        selectedParkDetails = park.description;
+                        window.alert(`${selectedParkDetails}}`)
+                    }
+                }
+            }
+        })
