@@ -38,8 +38,8 @@ export const Eateries = () => {
 mainContainer.addEventListener(
     "change",
     (event) => {
-        if (event.target.id === "eatery") {
-            applicationState.chosenEatery = document.querySelector("select[name='eaterySelect']").value
+        if (event.target.id === "eateries") {
+            applicationState.chosenEatery = document.querySelector("select[name='eateriesSelect']").value
             document.querySelector("#container").dispatchEvent(new CustomEvent("stateChanged"))
         }
     })
