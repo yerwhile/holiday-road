@@ -1,9 +1,15 @@
+import { fetchAttractions } from "./attractions/AttractionProvider.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 
 export const mainContainer = document.querySelector("#container")
 
 const render = () => {
-    mainContainer.innerHTML = HolidayRoad()
+    fetchAttractions()
+        .then(
+            () => {
+                mainContainer.innerHTML = HolidayRoad()
+            }
+        )
 
 }
 
