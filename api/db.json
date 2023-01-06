@@ -1,3 +1,16 @@
 {
-	"itineraries": []
+  "itineraries": [
+    {
+      "parkId": "3350C18C-8E07-487B-930E-37AD873D31AD",
+      "attractionId": "9",
+      "eateryId": "25",
+      "id": 1
+    },
+    {
+      "parkId": "3350C18C-8E07-487B-930E-37AD873D31AD",
+      "attractionId": "17",
+      "eateryId": "25",
+      "id": 2
+    }
+  ]
 }
