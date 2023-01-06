@@ -8,5 +8,13 @@ export const ItineraryPreview = () => {
             selectedAttractionName = attraction.name;
         }
     }
-    return `<div id="attractionPreview">Selected Attraction: ${selectedAttractionName}</div>`
+    const eateries = getData("eateries");
+    let selectedEateryName = "";
+    for(const eatery of eateries) {
+        if(eatery.id === parseInt(applicationState.chosenEatery)) {
+            selectedEateryName = eatery.businessName;
+        }
+    }
+    return `<div id="attractionPreview">Selected Attraction: ${selectedAttractionName}</div>
+            <div id="eateryPreview">Selected Eatery: ${selectedEateryName}</div>`
 }

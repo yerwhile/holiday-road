@@ -1,4 +1,4 @@
-import {getData, applicationState, mainContainer} from "../dataAccess.js"
+import { getData, applicationState, mainContainer } from "../dataAccess.js"
 
 export const Eateries = () => {
     const eateries = getData("eateries")
@@ -6,12 +6,14 @@ export const Eateries = () => {
     let html = ""
     html += '<select name="eaterySelect" id="eatery">'
     html += '<option value="0">Choose Eatery</option>'
-    const eateryArray = eateries.map(
-        eatery => {
-            return `<option value="${eatery.id}">${eatery.businessName}</option>`
+    for (const eatery of eateries) {
+        if (parseInt(applicationState.chosenEatery) === eatery.id) {
+            html += `<option selected value="${eatery.id}">${eatery.businessName}</option>`
         }
-    )
-    html += eateryArray.join("")
+        else {
+            html += `<option value="${eatery.id}">${eatery.businessName}</option>`;
+        }
+    }
     html += "</select>"
     return html
 }
@@ -19,7 +21,10 @@ export const Eateries = () => {
 mainContainer.addEventListener(
     "change",
     (event) => {
-        if(event.target.id === "eatery") {
-            applicationState.chosenEatery === document.querySelector("select[name='eaterySelect']").value
+        if (event.target.id === "eatery") {
+            applicationState.chosenEatery = document.querySelector("select[name='eaterySelect']").value
+            document.querySelector("#container").dispatchEvent(new CustomEvent("stateChanged"))
         }
     })
+
+
