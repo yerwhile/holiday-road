@@ -1,18 +1,25 @@
-import {} from "./.js"
+import {getData, applicationState, mainContainer} from "../dataAccess.js"
 
-export const Eatery = () => {
-    const eateries = getEatery()
+export const Eateries = () => {
+    const eateries = getData("eateries")
 
     let html = ""
-    html += '<select id="eatery">'
-    html += '<option value="0"></option>'
+    html += '<select name="eaterySelect" id="eatery">'
+    html += '<option value="0">Chose Eatery</option>'
     const eateryArray = eateries.map(
         eatery => {
             return `<option value="${eatery.id}">${eatery.businessName}</option>`
         }
     )
-    html +=eateryArray .join("")
+    html += eateryArray.join("")
     html += "</select>"
     return html
-
 }
+
+mainContainer.addEventListener(
+    "change",
+    (event) => {
+        if(event.target.id === "eatery") {
+            applicationState.chosenEatery === document.querySelector("select[name='eaterySelect']").value
+        }
+    })
