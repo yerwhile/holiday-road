@@ -27,9 +27,3 @@ mainContainer.addEventListener(
             document.querySelector("#container").dispatchEvent(new CustomEvent("stateChanged"))
         }
     })
-
-            // ${attractions.map(
-        //     attraction => {
-        //         return `<option value="${attraction.id}">${attraction.name}</option>`
-        //     }
-        // ).join("")}

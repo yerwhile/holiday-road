@@ -1,5 +1,4 @@
 import { fetchData, fetchForeignData, localAPI } from "./dataAccess.js"
-import { fetchAttractions } from "./attractions/AttractionProvider.js"
 import { fetchEateries } from "./eateries/EateryProvider.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 import Settings from "./Settings.js"
@@ -7,8 +6,8 @@ import Settings from "./Settings.js"
 export const mainContainer = document.querySelector("#container")
 
 const render = () => {
-    fetchAttractions()
-        .then(() => fetchEateries())
+    fetchEateries()
+        .then(() => fetchForeignData("http://holidayroad.nss.team/bizarreries", "attractions"))
         .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/parks?api_key=${Settings.npsKey}`, "parks"))
         .then(
             () => {
