@@ -1,4 +1,4 @@
-import { getData, applicationState } from "./dataAccess.js";
+import { getData, applicationState, postData } from "./dataAccess.js";
 
 export const ItineraryPreview = () => {
     const parkData = getData("parks");
@@ -28,5 +28,34 @@ export const ItineraryPreview = () => {
     return `
         <div id="parkPreview">Selected Park: ${selectedParkName}</div>
         <div id="attractionPreview">Selected Attraction: ${selectedAttractionName}</div>
-        <div id="eateryPreview">Selected Eatery: ${selectedEateryName}</div>`
+        <div id="eateryPreview">Selected Eatery: ${selectedEateryName}</div>
+        <button class="button" id="submitItinerary">Save Itinerary</button>`
 }
+
+/* 
+    Event listener for when submit button is clicked
+    get form data
+    check if any fields are empty
+    create object with appropriate data
+    send it to saved itinerary list in database
+*/
+
+document.addEventListener("click", e => {
+	const clickTarget = e.target;
+
+	if (clickTarget.id === "submitItinerary") {
+        const selectedPark = applicationState.chosenPark;
+		const selectedAttraction = applicationState.chosenAttraction;
+        const selectedEatery = applicationState.chosenEatery;
+
+        if (selectedPark != false || selectedAttraction != false || selectedEatery != false) {
+            const savedItinerary = {
+                "parkId": selectedPark,
+                "attractionId": selectedAttraction,
+                "eateryId": selectedEatery
+            }
+
+            postData("itineraries", savedItinerary);
+        }
+    }      
+})
