@@ -16,3 +16,7 @@
 #weatherForecast {
     border: 1px solid coral
 }
+
+.details-btn {
+    border-radius: 20px;
+}
