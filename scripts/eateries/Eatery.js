@@ -1,15 +1,16 @@
-import { getData, applicationState, mainContainer } from "../dataAccess.js"
+import { getData, mainContainer, setData } from "../dataAccess.js"
 import { getStateByChosenPark } from "../attractions/Attractions.js"
 
 export const Eateries = () => {
     const eateries = getData("eateries");
-
+    const chosenPark = getData("chosenPark");
+    const chosenEatery = getData("chosenEatery");
 
     let html = `
     <label class="label" for="eateriesSelect">Eateries</label>`
-    if(typeof applicationState.chosenPark === 'undefined' || applicationState.chosenPark === "0") {
+    if(typeof chosenPark === 'undefined' || chosenPark === 0) {
         html += `<select name="eateriesSelect" id="eateries" disabled>`
-        applicationState.chosenAttraction = "";
+        setData("chosenEatery", undefined);
     }
     else {
         html += `<select name="eateriesSelect" id="eateries">`
@@ -25,7 +26,7 @@ export const Eateries = () => {
     }
 
     for(const filteredEatery of eateriesFilteredByState) {
-        if(parseInt(applicationState.chosenEatery) === filteredEatery.id) {
+        if(parseInt(chosenEatery) === filteredEatery.id) {
             html += `<option selected value="${filteredEatery.id}">${filteredEatery.businessName}</option>`;
         } 
         else {
@@ -40,10 +41,7 @@ mainContainer.addEventListener(
     "change",
     (event) => {
         if (event.target.id === "eateries") {
-            applicationState.chosenEatery = document.querySelector("select[name='eateriesSelect']").value
+            setData("chosenEatery", document.querySelector("select[name='eateriesSelect']").value)
             document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
         }
     })
-
-    
-

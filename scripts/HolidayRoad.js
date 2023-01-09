@@ -12,7 +12,9 @@ export const HolidayRoad = () => {
     return `
     <div id="logo">LOGO</div>
     <div id="selectBoxes">
-        ${selectParks()}
+        <div id="parkSelect">
+            ${selectParks()}
+        </div>
         <div id="attractionsSelect">
             ${Attractions()}
         </div>

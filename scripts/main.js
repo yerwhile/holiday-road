@@ -1,4 +1,4 @@
-import { applicationState, fetchData, fetchForeignData, getData } from "./dataAccess.js"
+import { fetchData, fetchForeignData, getData } from "./dataAccess.js"
 import { fetchEateries } from "./eateries/EateryProvider.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 import Settings from "./Settings.js"
@@ -41,13 +41,17 @@ mainContainer.addEventListener(
 mainContainer.addEventListener(
     "parkSelected",
     customEvent => {
-        const parks = getData("parks").data;
-        const selectedPark = parks.find(park => park.id === applicationState.chosenPark);
-        const lat = selectedPark.latitude;
-        const lon = selectedPark.longitude;
-        fetchForeignData(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${Settings.weatherKey}`, "weather")
-        .then(() => document.querySelector('#weatherForecast').innerHTML = Weather())
-        document.querySelector('#attractionsSelect').innerHTML = Attractions();
-        document.querySelector('#eaterySelect').innerHTML = Eateries();
+        const chosenPark = getData("chosenPark");
+
+        if (chosenPark !== "0") {
+            const parks = getData("parks").data;
+            const selectedPark = parks.find(park => park.id === chosenPark);
+            const lat = selectedPark.latitude;
+            const lon = selectedPark.longitude;
+            fetchForeignData(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${Settings.weatherKey}`, "weather")
+            .then(() => document.querySelector('#weatherForecast').innerHTML = Weather())
+            document.querySelector('#attractionsSelect').innerHTML = Attractions();
+            document.querySelector('#eaterySelect').innerHTML = Eateries();
+        }
     }
 )
