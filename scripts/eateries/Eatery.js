@@ -7,8 +7,9 @@ export const Eateries = () => {
 
     let html = `
     <label class="label" for="eateriesSelect">Eateries</label>`
-    if(typeof applicationState.chosenPark === 'undefined') {
+    if(typeof applicationState.chosenPark === 'undefined' || applicationState.chosenPark === "0") {
         html += `<select name="eateriesSelect" id="eateries" disabled>`
+        applicationState.chosenAttraction = "";
     }
     else {
         html += `<select name="eateriesSelect" id="eateries">`
@@ -40,7 +41,7 @@ mainContainer.addEventListener(
     (event) => {
         if (event.target.id === "eateries") {
             applicationState.chosenEatery = document.querySelector("select[name='eateriesSelect']").value
-            document.querySelector("#container").dispatchEvent(new CustomEvent("stateChanged"))
+            document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
         }
     })
 

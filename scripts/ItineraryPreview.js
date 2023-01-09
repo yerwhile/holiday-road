@@ -2,28 +2,37 @@
 import { getData, applicationState, mainContainer, postData } from "./dataAccess.js";
 
 export const ItineraryPreview = () => {
-    const parkData = getData("parks");
-    const parks = parkData.data;
+    const parks = getData("parks").data;
     const selectedPark = parks.find(park => park.id === applicationState.chosenPark);
     let selectedParkName = "";
 
-    if (applicationState.chosenPark !== undefined) {
+    if (applicationState.chosenPark !== undefined && applicationState.chosenPark !== "0") {
         selectedParkName = selectedPark.fullName;
     }
 
     const attractions = getData("attractions");
     let selectedAttractionName = "";
-    for (const attraction of attractions) {
-        if (attraction.id === parseInt(applicationState.chosenAttraction)) {
-            selectedAttractionName = attraction.name;
+    if(applicationState.chosenPark === "0") {
+        selectedAttractionName = "";
+    }
+    else {
+        for (const attraction of attractions) {
+            if (attraction.id === parseInt(applicationState.chosenAttraction)) {
+                selectedAttractionName = attraction.name;
+            }
         }
     }
 
     const eateries = getData("eateries");
     let selectedEateryName = "";
-    for (const eatery of eateries) {
-        if (eatery.id === parseInt(applicationState.chosenEatery)) {
-            selectedEateryName = eatery.businessName;
+    if(applicationState.chosenPark === "0") {
+        selectedAttractionName = "";
+    }
+    else {
+        for (const eatery of eateries) {
+            if (eatery.id === parseInt(applicationState.chosenEatery)) {
+                selectedEateryName = eatery.businessName;
+            }
         }
     }
     return `
@@ -50,11 +59,12 @@ document.addEventListener("click", e => {
 		const selectedAttraction = applicationState.chosenAttraction;
         const selectedEatery = applicationState.chosenEatery;
 
-        if (selectedPark != false || selectedAttraction != false || selectedEatery != false) {
+        // if (isNaN(letterAPI.authorId) || isNaN(letterAPI.recipientId) || letterAPI.content === "") {
+        if (selectedPark !== undefined && selectedAttraction !== undefined && selectedEatery !== undefined) {
             const savedItinerary = {
                 "parkId": selectedPark,
-                "attractionId": selectedAttraction,
-                "eateryId": selectedEatery
+                "attractionId": parseInt(selectedAttraction),
+                "eateryId": parseInt(selectedEatery)
             }
 
             postData("itineraries", savedItinerary);
