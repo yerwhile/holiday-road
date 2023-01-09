@@ -10,7 +10,9 @@ import { Weather } from "./weather/weather.js"
 
 export const HolidayRoad = () => {
     return `
-    <div id="logo">LOGO</div>
+    <div id="logo"><img src="https://media.istockphoto.com/id/1319082592/vector/round-tree-icon-with-leaves-and-roots.jpg?s=612x612&w=0&k=20&c=N3tHnScT5KmcODhCgrYEvM5bEsJOR66oMAiS2UYj9MU=" alt="Buttons and Lollipop" width="100px">
+    <h2>Old Yeller's Trip Planner</h2>
+    </div>
     <div id="selectBoxes">
         ${selectParks()}
         <div id="attractionsSelect">
