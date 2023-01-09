@@ -13,9 +13,20 @@ export const Weather = () => {
         const thirdTemp = Math.floor(secondTemp)
         const description = weathers[arr].weather[0].description
         const date = weathers[arr].dt_txt
-        html += `${thirdTemp}°F ${date} ${description} `
+        const dateNum = date.substring(0,10);
+        const dateDay = getDayOfWeek(date);
+        html += `<div class="weatherDay">
+                    <div class="weatherDayHeader">${dateDay} (${dateNum})</div> <hr>
+                    <div class="weatherDayBody">Temperature: ${thirdTemp}°F<br>Forecast: ${description}</div>
+                </div>`
 
     }
     return html
 
+}
+
+const getDayOfWeek = (date) => {
+    const dayOfWeek = new Date(date).getDay();    
+    return isNaN(dayOfWeek) ? null : 
+      ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
 }
