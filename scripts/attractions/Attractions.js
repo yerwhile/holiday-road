@@ -17,8 +17,9 @@ export const Attractions = () => {
 
     let html = `
     <label class="label" for="attractionsSelect">Attractions</label>`
-    if(typeof applicationState.chosenPark === 'undefined') {
+    if(typeof applicationState.chosenPark === 'undefined' || applicationState.chosenPark === "0") {
         html += `<select name="attractionSelect" id="attractions" disabled>`
+        applicationState.chosenAttraction = "";
     }
     else {
         html += `<select name="attractionSelect" id="attractions">`
