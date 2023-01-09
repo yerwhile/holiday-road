@@ -5,6 +5,7 @@ import Settings from "./Settings.js"
 import { ItineraryPreview } from "./ItineraryPreview.js"
 import { Attractions } from "./attractions/Attractions.js"
 import { Eateries } from "./eateries/Eatery.js"
+import { Weather } from "./weather/weather.js"
 
 export const mainContainer = document.querySelector("#container")
 
@@ -44,8 +45,8 @@ mainContainer.addEventListener(
         const selectedPark = parks.find(park => park.id === applicationState.chosenPark);
         const lat = selectedPark.latitude;
         const lon = selectedPark.longitude;
-        fetchForeignData(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${Settings.weatherKey}`, "weather");
-
+        fetchForeignData(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${Settings.weatherKey}`, "weather")
+        .then(() => document.querySelector('#weatherForecast').innerHTML = Weather())
         document.querySelector('#attractionsSelect').innerHTML = Attractions();
         document.querySelector('#eaterySelect').innerHTML = Eateries();
     }
