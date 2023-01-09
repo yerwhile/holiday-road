@@ -1,10 +1,11 @@
-import { getData, mainContainer, applicationState } from "../dataAccess.js";
+import { getData, mainContainer, setData } from "../dataAccess.js";
 
 export const getStateByChosenPark = () => {
-    const parks = getData("parks").data
+    const parks = getData("parks").data;
+    const chosenPark = getData("chosenPark");
     let chosenParkState = ""
     for(const park of parks) {
-        if(park.id === applicationState.chosenPark) {
+        if(park.id === chosenPark) {
             chosenParkState = park.addresses[0].stateCode;
         }
     }
@@ -13,21 +14,22 @@ export const getStateByChosenPark = () => {
 
 export const Attractions = () => {
     const attractions = getData("attractions");
-
+    const chosenPark = getData("chosenPark");
+    const chosenAttraction = getData("chosenAttraction");
 
     let html = `
     <label class="label" for="attractionsSelect">Attractions</label>`
-    if(typeof applicationState.chosenPark === 'undefined' || applicationState.chosenPark === "0") {
+    if(typeof chosenPark === 'undefined' || chosenPark === 0) {
         html += `<select name="attractionSelect" id="attractions" disabled>`
-        applicationState.chosenAttraction = "";
+        setData("chosenAttraction", undefined)
     }
     else {
         html += `<select name="attractionSelect" id="attractions">`
     }
     html += `<option value="0">Choose Attraction</option>`
     
-    const attractionsFilteredByState = [];
     const chosenState = getStateByChosenPark()
+    const attractionsFilteredByState = [];
     for(const attraction of attractions) {
         if(attraction.state === chosenState) {
             attractionsFilteredByState.push(attraction)
@@ -35,7 +37,7 @@ export const Attractions = () => {
     }
 
     for(const filteredAttraction of attractionsFilteredByState) {
-        if(parseInt(applicationState.chosenAttraction) === filteredAttraction.id) {
+        if(chosenAttraction === filteredAttraction.id) {
             html += `<option selected value="${filteredAttraction.id}">${filteredAttraction.name}</option>`;
         } 
         else {
@@ -50,7 +52,7 @@ mainContainer.addEventListener(
     "change",
     (event) => {
         if(event.target.id === "attractions") {
-            applicationState.chosenAttraction = document.querySelector("select[name='attractionSelect']").value
+            setData("chosenAttraction", document.querySelector("select[name='attractionSelect']").value);
             document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
         }
     })

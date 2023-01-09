@@ -38,10 +38,10 @@ export const postData = (data, userData) => {
 
     return fetch(`${localAPI}/${data}`, fetchOptions)
         .then(response => response.json())
-        .then(() => {
-            // Runs custom event to re-render page
-            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-        })
+        // .then(() => {
+        //     // Runs custom event to re-render page
+        //     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        // })
 }
 
 // delete data from json database
@@ -56,8 +56,16 @@ export const deleteData = (data, id) => {
 
 // take a parameter and get it from the application state
 export const getData = (data) => {
-    if (Array.isArray(data)) {
-        return applicationState[data].map(dataItems => ({ ...dataItems }));
+    if (typeof applicationState[data] === "object") {
+        if (Array.isArray(applicationState[data])) {
+            return applicationState[data].map(dataItems => ({ ...dataItems }));
+        }
+        return JSON.parse(JSON.stringify(applicationState[data]));
     }
-    return JSON.parse(JSON.stringify(applicationState[data]));
+    return applicationState[data];
+}
+
+// put a variable into the application state
+export const setData = (dataName, data) => {
+    applicationState[dataName] = data;
 }

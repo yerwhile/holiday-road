@@ -14,7 +14,9 @@ export const HolidayRoad = () => {
     <h2>Old Yeller's Trip Planner</h2>
     </div>
     <div id="selectBoxes">
-        ${selectParks()}
+        <div id="parkSelect">
+            ${selectParks()}
+        </div>
         <div id="attractionsSelect">
             ${Attractions()}
         </div>

@@ -1,5 +1,5 @@
 
-import { getData, applicationState, mainContainer, postData } from "./dataAccess.js";
+import { getData, applicationState, mainContainer, postData, setData } from "./dataAccess.js";
 
 export const ItineraryPreview = () => {
     const parks = getData("parks").data;
@@ -48,31 +48,38 @@ export const ItineraryPreview = () => {
     check if any fields are empty
     create object with appropriate data
     send it to saved itinerary list in database
-
+    reset page data
 */
+
+const resetTransientData = () => {
+    setData("chosenPark", undefined);
+    setData("chosenAttraction", undefined);
+    setData("chosenEatery", undefined)
+}
 
 document.addEventListener("click", e => {
 	const clickTarget = e.target;
 
 	if (clickTarget.id === "submitItinerary") {
-        const selectedPark = applicationState.chosenPark;
-		const selectedAttraction = applicationState.chosenAttraction;
-        const selectedEatery = applicationState.chosenEatery;
+        const selectedPark = getData("chosenPark");
+		const selectedAttraction = getData("chosenAttraction");
+        const selectedEatery = getData("chosenEatery");
 
-        // if (isNaN(letterAPI.authorId) || isNaN(letterAPI.recipientId) || letterAPI.content === "") {
-        if (selectedPark !== undefined && selectedAttraction !== undefined && selectedEatery !== undefined) {
+        if (selectedPark !== undefined && parseInt(selectedAttraction) > 0 && parseInt(selectedEatery) > 0) {
             const savedItinerary = {
                 "parkId": selectedPark,
                 "attractionId": parseInt(selectedAttraction),
                 "eateryId": parseInt(selectedEatery)
             }
 
-            postData("itineraries", savedItinerary);
+            postData("itineraries", savedItinerary)
+                .then(() => resetTransientData())
+                .then(() => mainContainer.dispatchEvent(new CustomEvent("stateChanged")))
         }
     }      
 })
 
-
+// Detail Buttons
 
 mainContainer.addEventListener(
     "click",
