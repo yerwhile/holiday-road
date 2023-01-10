@@ -16,15 +16,45 @@ const formatItinerary = (itinerary) => {
 
     return `
         <div class="savedItinerary">
-            <div>Itinerary #${itinerary.id}</div>
+        <div id=eachItinerary>
+            <div class="Itin-num">Itinerary #${itinerary.id}</div>
             <div>Park: ${itinPark.fullName}</div>
             <div>Attraction: ${itinAttraction.name}</div>
             <div>Eatery: ${itinEateries.businessName}</div>
+            </div>
         </div>`
 }
 
 export const savedItineraries = () => {
     const itineraries = getData("itineraries");
 
-    return `${itineraries.map(itinerary => formatItinerary(itinerary)).join("")}`
+    return `${itineraries.map(itinerary => formatItinerary(itinerary)).join("")}<button class="button" id="eventsBtn">See Events</button>`
 }
+
+/*
+mainContainer.addEventListener(
+    "click",
+    (event) => {
+        if (event.target.id === "eventsbBtn") {
+            const parks = getData("parks").data;
+            let selectedParkDetails = "";
+            for (const park of parks) {
+                if (park.id === applicationState.chosenPark) {
+                    selectedParkDetails = park.description;
+                    window.alert(`${selectedParkDetails}}`)
+                }
+            }
+        }
+    })
+
+
+mainContainer.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.id === "eventsBtn") {
+            applicationState.chosenPark = document.querySelector("select[name='eateriesSelect']").value
+            document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
+        }
+    })
+
+    */

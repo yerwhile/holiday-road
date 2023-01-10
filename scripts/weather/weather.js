@@ -7,7 +7,10 @@ export const Weather = () => {
     const array = [7, 15, 23, 31, 39]
     let html = ""
 
+    
+
     for (const arr of array) {
+        //tie weathers and array together 
         const firstTemp = weathers[arr].main.temp
         const secondTemp = ((firstTemp - 273.15) * 1.8 + 32)
         const thirdTemp = Math.floor(secondTemp)
