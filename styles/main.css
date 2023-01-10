@@ -29,6 +29,19 @@ option:hover {
 .details-btn {
     border-radius: 20px;
 }
+
+#weatherForecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.weatherDay {
+    border: dotted 2px;
+    border-radius: 10% 30% 50% 70%;
+    padding: 35px;
+    margin: 20px;
+}
 .details-btn:hover {
     background-color: bisque;
 }

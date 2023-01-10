@@ -15,7 +15,7 @@ export const selectParks = () => {
     const parks = getData("parks").data;
 
     return `<select name="parks" id="parkSelect">
-            <option value="0">Choose Option</option>
+            <option value="0">Choose Park</option>
             ${parks.map(park => formatParks(park)).join("")}
         </select>`
 }

@@ -7,7 +7,7 @@ export const Eateries = () => {
     const chosenEatery = getData("chosenEatery");
 
     let html = `
-    <label class="label" for="eateriesSelect">Eateries</label>`
+    <label class="label" for="eateriesSelect"></label>`
     if(typeof chosenPark === 'undefined' || chosenPark === 0) {
         html += `<select name="eateriesSelect" id="eateries" disabled>`
         setData("chosenEatery", undefined);
