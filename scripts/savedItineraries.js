@@ -41,13 +41,13 @@ mainContainer.addEventListener(
             const [, parkID] = event.target.name.split('--')
             const parks = getData("parks").data
             const parkFound = parks.find((park) => park.id === parkID)
-            fetchForeignData(`https://developer.nps.gov/api/v1/events?&limit=2&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks")
+            fetchForeignData(`https://developer.nps.gov/api/v1/events?&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks")
                 .then(() => {
                     const events = getData("eventParks").data
                     if (events[0] === undefined) {
                         window.alert("No Events Currently Booked At This Park, it's January, WHATTT ARRRRE YOU THINKKKING!:)")
                     }
-                    if (events[0].location === "Mammoth Cave National Park Visitor Center") {
+                    if (events[0].feeinfo !== "") {
                         window.alert(`Title: ${events[0].title} \nDate: ${events[0].datestart} \nTime: ${events[0].times[0].timestart}  \nEnd: ${events[0].times[0].timeend} \n Description: ${events[0].description} \nFee Info: ${events[0].feeinfo}`)
                     }
                     else {
