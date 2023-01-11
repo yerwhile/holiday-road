@@ -76,8 +76,8 @@ mainContainer.addEventListener(
             const sendCoords =  (attrCoords, eatCoords) => {
                     fetchForeignData(`https://graphhopper.com/api/1/route?point=36.1622767,-86.7742984&point=${parkLat},${parkLong}&point=${attrCoords[0]},${attrCoords[1]}&point=${eatCoords[0]},${eatCoords[1]}&key=${Settings.graphhopperKey}`, "directions")
                         .then(() => {
-                            /* ---------- ADD IF STATEMENT TO CATCH FETCH FAILURES HERE ---------------------------------------------------------------- */
                             const directions = getData("directions");
+                            document.querySelector("#container").dispatchEvent(new CustomEvent("getDirections"))
                             console.log(directions);
                         })
 

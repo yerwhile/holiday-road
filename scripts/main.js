@@ -7,6 +7,7 @@ import { Attractions } from "./attractions/Attractions.js"
 import { Eateries } from "./eateries/Eatery.js"
 import { Weather } from "./weather/weather.js"
 import { selectParks } from "./parks/parks.js"
+import { Directions } from "./directions.js"
 
 export const mainContainer = document.querySelector("#container")
 
@@ -56,5 +57,12 @@ mainContainer.addEventListener(
             document.querySelector('#eaterySelect').innerHTML = Eateries();
             document.querySelector('#parkSelect').innerHTML = selectParks();
         }
+    }
+)
+
+mainContainer.addEventListener(
+    "getDirections",
+    customEvent => {
+        document.querySelector('#directions').innerHTML = Directions();
     }
 )
