@@ -58,7 +58,7 @@ document.addEventListener("click", e => {
         const chosenPark = getData("chosenPark")
         console.log(chosenPark)
         document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
-        // document.querySelector("#container").dispatchEvent(new CustomEvent("parkSelected"))
+        document.querySelector("#container").dispatchEvent(new CustomEvent("parkSelected"))
     }
 })
 
