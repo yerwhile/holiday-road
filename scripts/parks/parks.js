@@ -6,24 +6,30 @@
 
 import { getData, mainContainer, setData } from "../dataAccess.js"
 
-const formatParks = (park) => {
-    return `
-        <option value="${park.id}">${park.fullName}</option>`
-}
-
 export const selectParks = () => {
     const parks = getData("parks").data;
+    const chosenPark = getData("chosenPark");
+    let html = `<select name="parks" id="parksSelect">
+    <option value="0">Choose Park</option>`
 
-    return `<select name="parks" id="parkSelect">
-            <option value="0">Choose Park</option>
-            ${parks.map(park => formatParks(park)).join("")}
-        </select>`
+    for(const park of parks) {
+        if(chosenPark === park.id) {
+            html += `<option selected value="${park.id}">${park.fullName}</option>`
+        }
+        else {
+            html += `<option value="${park.id}">${park.fullName}</option>`
+        }
+    }
+
+    html += `</select>`
+
+    return html;
 }
 
 mainContainer.addEventListener(
     "change",
     (event) => {
-        if(event.target.id === "parkSelect") {
+        if(event.target.id === "parksSelect") {
             setData("chosenPark", document.querySelector("select[name='parks']").value);
             document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
             document.querySelector("#container").dispatchEvent(new CustomEvent("parkSelected"))
