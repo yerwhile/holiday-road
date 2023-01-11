@@ -7,9 +7,11 @@
     border: 1px solid #149419;
     background-color:  #4E2813;
 }
+
 option:hover {
     background-color: bisque;
 }
+
 #itineraries {
     display: flex;
 }
@@ -81,7 +83,7 @@ option:hover {
    text-shadow: #FC0 1px 0 10px;
 }
 
-#eachItinerary {
+.savedItinerary {
     background-color: #b3cdb6;
     padding: 10px 10px 10px 10px;
     margin-top: 20px;
