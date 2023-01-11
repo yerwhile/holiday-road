@@ -8,6 +8,7 @@ export const ItineraryPreview = () => {
 
     if (applicationState.chosenPark !== undefined && applicationState.chosenPark !== "0") {
         selectedParkName = selectedPark.fullName;
+        console.log(selectedParkName)
     }
 
     const attractions = getData("attractions");
