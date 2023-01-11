@@ -3,8 +3,8 @@
     display names of park, attraction, and eatery
 */
 
-import { fetchForeignData, getData, mainContainer } from "./dataAccess.js";
 import Settings from "./Settings.js";
+import { applicationState, fetchForeignData, getData, mainContainer } from "./dataAccess.js";
 
 const formatItinerary = (itinerary) => {
     const parks = getData("parks").data;
@@ -24,6 +24,7 @@ const formatItinerary = (itinerary) => {
                 <div>Eatery: ${itinEateries.businessName}</div>
             </div>
             <div>
+                <button class="button" id="eventsBtn" name="events--${itinPark.id}">See Events</button>
                 <button class="button" id="directionsButton" name="itin--${itinerary.id}">Get Directions</button>
             </div>
         </div>`
@@ -32,7 +33,7 @@ const formatItinerary = (itinerary) => {
 export const savedItineraries = () => {
     const itineraries = getData("itineraries");
 
-    return `${itineraries.map(itinerary => formatItinerary(itinerary)).join("")}<button class="button" id="eventsBtn">See Events</button>`
+    return `${itineraries.map(itinerary => formatItinerary(itinerary)).join("")}`
 }
 
 /* 
@@ -104,30 +105,30 @@ mainContainer.addEventListener(
     }
 );
 
-/*
+
 mainContainer.addEventListener(
     "click",
     (event) => {
-        if (event.target.id === "eventsbBtn") {
-            const parks = getData("parks").data;
-            let selectedParkDetails = "";
-            for (const park of parks) {
-                if (park.id === applicationState.chosenPark) {
-                    selectedParkDetails = park.description;
-                    window.alert(`${selectedParkDetails}}`)
-                }
-            }
-        }
-    })
-
-
-mainContainer.addEventListener(
-    "change",
-    (event) => {
         if (event.target.id === "eventsBtn") {
-            applicationState.chosenPark = document.querySelector("select[name='eateriesSelect']").value
-            document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
+            const [, parkID] = event.target.name.split('--')
+            const parks = getData("parks").data
+            const parkFound = parks.find((park) => park.id === parkID)
+            fetchForeignData(`https://developer.nps.gov/api/v1/events?&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks")
+                .then(() => {
+                    const events = getData("eventParks").data
+                    if (events[0] === undefined) {
+                        window.alert("No Events Currently Booked At This Park, it's January, WHATTT ARRRRE YOU THINKKKING!:)")
+                    }
+                    if (events[0].feeinfo !== "") {
+                        window.alert(`Title: ${events[0].title} \nDate: ${events[0].datestart} \nTime: ${events[0].times[0].timestart}  \nEnd: ${events[0].times[0].timeend} \n Description: ${events[0].description} \nFee Info: ${events[0].feeinfo}`)
+                    }
+                    else {
+                        window.alert(`Title: ${events[0].title} \nDate: ${events[0].datestart} \nTime: ${events[0].times[0].timestart}  \nEnd: ${events[0].times[0].timeend} \n Description: ${events[0].description} \nFree`)
+                    }
+                })
         }
-    })
+})
 
-    */
+
+
+
