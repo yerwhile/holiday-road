@@ -1,4 +1,6 @@
 import { getData, setData } from "./dataAccess.js";
+import { Attractions } from "./attractions/Attractions.js";
+import { Eateries } from "./eateries/Eatery.js";
 
 let foundParks = []
 let foundAttractions = []
@@ -67,6 +69,7 @@ document.addEventListener("click", e => {
     if(e.target.id === "addAttraction") {
         setData("chosenAttraction", parseInt(e.target.name))
         document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
+        document.querySelector('#attractionsSelect').innerHTML = Attractions();
     }
 })
 
@@ -74,5 +77,6 @@ document.addEventListener("click", e => {
     if(e.target.id === "addEatery") {
         setData("chosenEatery", parseInt(e.target.name))
         document.querySelector("#container").dispatchEvent(new CustomEvent("dropdownChanged"))
+        document.querySelector('#eaterySelect').innerHTML = Eateries();
     }
 })

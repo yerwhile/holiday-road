@@ -1,5 +1,5 @@
 import { getData, mainContainer, setData } from "../dataAccess.js"
-import { getStateByChosenPark } from "../attractions/Attractions.js"
+// import { getStateByChosenPark } from "../attractions/Attractions.js"
 
 export const Eateries = () => {
     const eateries = getData("eateries");
@@ -17,20 +17,20 @@ export const Eateries = () => {
     }
     html += `<option value="0">Choose Eatery</option>`
     
-    const eateriesFilteredByState = [];
-    const chosenState = getStateByChosenPark()
-    for(const eatery of eateries) {
-        if(eatery.state === chosenState) {
-            eateriesFilteredByState.push(eatery)
-        }
-    }
+    // const eateriesFilteredByState = [];
+    // const chosenState = getStateByChosenPark()
+    // for(const eatery of eateries) {
+    //     if(eatery.state === chosenState) {
+    //         eateriesFilteredByState.push(eatery)
+    //     }
+    // }
 
-    for(const filteredEatery of eateriesFilteredByState) {
-        if(parseInt(chosenEatery) === filteredEatery.id) {
-            html += `<option selected value="${filteredEatery.id}">${filteredEatery.businessName}</option>`;
+    for(const eatery of eateries) {
+        if(parseInt(chosenEatery) === eatery.id) {
+            html += `<option selected value="${eatery.id}">${eatery.businessName}</option>`;
         } 
         else {
-        html += `<option value="${filteredEatery.id}">${filteredEatery.businessName}</option>`;
+        html += `<option value="${eatery.id}">${eatery.businessName}</option>`;
         }
     }
     html += `</select>`
