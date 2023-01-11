@@ -118,6 +118,14 @@ select:hover {
  text-shadow: #FC0 1px 0 10px;      
 }
 
+
+#searchResults {
+   background-color:  #b3cdb6;
+}
+
+.search {
+    background-color: #6CC777;
+}
 /*
 hex colors from logo
 light green color: #6CC777;

@@ -4,9 +4,12 @@ import { fetchForeignData } from "./dataAccess.js";
 export const UserSearch = () => {
     
     return `
+    <div class="search">
         <label for="site-search">Search All Destinations:</label>
         <input type="search" id="site-search" name="q">
-        <button class="button" id="searchButton">Search</button>`
+        <button class="button" id="searchButton">Search</button>
+        </div>`
+
     
 }
 
