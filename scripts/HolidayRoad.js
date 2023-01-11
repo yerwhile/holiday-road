@@ -5,7 +5,7 @@ import { Attractions } from "./attractions/Attractions.js"
 import { ItineraryPreview } from "./ItineraryPreview.js"
 import { Eateries } from "./eateries/Eatery.js"
 import { savedItineraries } from "./savedItineraries.js"
-import { Weather } from "./weather/weather.js"
+import { UserSearch } from "./UserSearch.js"
 
 
 export const HolidayRoad = () => {
@@ -34,6 +34,12 @@ export const HolidayRoad = () => {
     </div>
     <div id="weatherForecast">
       
+    </div>
+    <div id="searchForm">
+        ${UserSearch()}
+    </div>
+    <div id="searchResults">
+
     </div>
     </div>`
 }

@@ -26,6 +26,7 @@ export const fetchForeignData = (API, dataName) => {
         )
 }
 
+
 // send data to json database
 export const postData = (data, userData) => {
     const fetchOptions = {
