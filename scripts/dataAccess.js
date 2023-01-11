@@ -17,13 +17,24 @@ export const fetchData = (data) => {
 
 // take two parameters, one for the API you want to fetch, the other for what you want to name it, and put it into applicationState
 export const fetchForeignData = (API, dataName) => {
+
     return fetch(`${API}`)
-        .then(response => response.json())
+        .then(response => {
+            if(!response.ok) {
+                throw new Error('Network response was not OK'); 
+            }
+            return response.json()
+        }) 
         .then(
             (dataItems) => {
                 applicationState[dataName] = dataItems;
             }
         )
+        .catch((response) => {
+            console.log(response)
+            window.alert('Surprise! Graphhopper don\'t care for these coordinates')
+        })
+
 }
 
 
