@@ -7,15 +7,23 @@
     border: 1px solid #149419;
     background-color:  #4E2813;
 }
+
 option:hover {
     background-color: bisque;
 }
+
+select:hover {
+    background-color: #6CC777;
+    cursor: pointer;
+}
+
+
 #itineraries {
     display: flex;
 }
 
 #itineraryPreview, #savedItineraries {
-    border: 1px solid#6CC777;
+    border: 1px solid #6CC777;
     background-color: #6CC777;
     width: 50%;
     border: 1px solid #4E2813;
@@ -37,22 +45,24 @@ option:hover {
 }
 
 .weatherDay {
-    border: dotted 2px;
+    border: dotted 2px #4E2813;
     border-radius: 10% 30% 50% 70%;
     padding: 35px;
     margin: 20px;
+    background-color: #b3cdb6;
 }
 .details-btn:hover {
     background-color: bisque;
+    cursor: pointer;
 }
 
 #eventsBtn:hover {
     background-color: bisque;
+    cursor: pointer;
 }
 
 #eventsBtn {
-    position: relative;
-    left: 20%;
+    margin-top: 10px;
 }
 
 #submitItinerary {
@@ -61,6 +71,7 @@ option:hover {
 
 #submitItinerary:hover {
     background-color: bisque;
+    cursor: pointer;
 }
 
 #logo {
@@ -81,7 +92,7 @@ option:hover {
    text-shadow: #FC0 1px 0 10px;
 }
 
-#eachItinerary {
+.savedItinerary {
     background-color: #b3cdb6;
     padding: 10px 10px 10px 10px;
     margin-top: 20px;
@@ -98,8 +109,18 @@ option:hover {
     text-shadow: #FC0 1px 0 10px;
 }
 
+#imageBtn {
+    margin-top: 5px;
+}
 
+#imageBtn:hover {
+    background-color: bisque;
+    cursor: pointer;
+}
 
+.weatherDayHeader {
+ text-shadow: #FC0 1px 0 10px;      
+}
 
 /*
 hex colors from logo
