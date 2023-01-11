@@ -73,13 +73,14 @@ mainContainer.addEventListener(
             const eateryCity = itinEateries.city;
 
             // send lat and long to directions api
-            const sendCoords = (attrCoords, eatCoords) => {
-                fetchForeignData(`https://graphhopper.com/api/1/route?point=36.1622767,-86.7742984&point=${parkLat},${parkLong}&point=${attrCoords[0]},${attrCoords[1]}&point=${eatCoords[0]},${eatCoords[1]}&key=${Settings.graphhopperKey}`, "directions")
-                    .then(() => {
-                        /* ---------- ADD IF STATEMENT TO CATCH FETCH FAILURES HERE ---------------------------------------------------------------- */
-                        const directions = getData("directions");
-                        console.log(directions);
-                    })
+            const sendCoords =  (attrCoords, eatCoords) => {
+                    fetchForeignData(`https://graphhopper.com/api/1/route?point=36.1622767,-86.7742984&point=${parkLat},${parkLong}&point=${attrCoords[0]},${attrCoords[1]}&point=${eatCoords[0]},${eatCoords[1]}&key=${Settings.graphhopperKey}`, "directions")
+                        .then(() => {
+                            /* ---------- ADD IF STATEMENT TO CATCH FETCH FAILURES HERE ---------------------------------------------------------------- */
+                            const directions = getData("directions");
+                            console.log(directions);
+                        })
+
             }
 
             // get lat and long
@@ -93,10 +94,9 @@ mainContainer.addEventListener(
                 const eateryLat = eateryLocation.point.lat;
                 const eateryLong = eateryLocation.point.lng;
                 const eateryCoords = [eateryLat, eateryLong];
-
+                
                 sendCoords(attractionCoords, eateryCoords)
             }
-
             // fetch city APIs and run Functions
             fetchForeignData(`https://graphhopper.com/api/1/geocode?q=${attractionCity}&locale=en&key=${Settings.graphhopperKey}`, "attractionCity")
                 .then(() => fetchForeignData(`https://graphhopper.com/api/1/geocode?q=${eateryCity}&locale=en&key=${Settings.graphhopperKey}`, "eateryCity"))
