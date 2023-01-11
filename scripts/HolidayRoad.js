@@ -6,6 +6,7 @@ import { ItineraryPreview } from "./ItineraryPreview.js"
 import { Eateries } from "./eateries/Eatery.js"
 import { savedItineraries } from "./savedItineraries.js"
 import { UserSearch } from "./UserSearch.js"
+import { Directions } from "./directions.js"
 
 
 export const HolidayRoad = () => {
@@ -28,9 +29,12 @@ export const HolidayRoad = () => {
 
 <div class="wrap">
     <div class="format">
-            <div id="itineraryPreview">
+        <div id="itineraryPreview">
             ${ItineraryPreview()}
-            </div>
+        </div>
+        <div id="directions">
+            ${Directions()}
+        </div>
         <div id="searchForm">
             ${UserSearch()}
         </div> 
