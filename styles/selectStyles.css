@@ -1,0 +1,49 @@
+/* Button styles */
+
+.details-btn {
+    border-radius: 20px;
+}
+
+/* Hovers */
+
+option:hover {
+    background-color: bisque;
+}
+
+select:hover {
+    background-color: #6CC777;
+}
+
+button:hover {
+    background-color: bisque;
+    cursor: pointer;
+}
+
+/* Select section */
+
+.search {
+    background-color: #6CC777;
+    width: 75%;
+    position: relative;
+    left: 25%;
+}
+
+#searchResults {
+    width: 50%;
+    background-color: #6CC777;
+    margin: 0;
+    border: 1px solid #4E2813;
+    width:100%;
+    text-align: center;
+}
+
+/* ------- Removed? -------------------------
+
+#imageBtn {
+    margin-top: 5px;
+}
+
+#imageBtn:hover {
+    background-color: bisque;
+} 
+*/
