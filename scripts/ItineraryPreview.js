@@ -93,7 +93,7 @@ mainContainer.addEventListener(
             for (const eatery of eateries) {
                 if (eatery.id === parseInt(applicationState.chosenEatery)) {
                     selectedEateryDetails = eatery.description;
-                    window.alert(`${selectedEateryDetails}}`)
+                    window.alert(`${selectedEateryDetails}`)
                 }
             }
         }
@@ -108,7 +108,7 @@ mainContainer.addEventListener(
             for (const attraction of attractions) {
                 if (attraction.id === parseInt(applicationState.chosenAttraction)) {
                     selectedAttractionDetails = attraction.description;
-                    window.alert(`${selectedAttractionDetails}}`)
+                    window.alert(`${selectedAttractionDetails}`)
                 }
             }
         }
@@ -123,7 +123,7 @@ mainContainer.addEventListener(
                 for (const park of parks) {
                     if (park.id === applicationState.chosenPark) {
                         selectedParkDetails = park.description;
-                        window.alert(`${selectedParkDetails}}`)
+                        window.alert(`${selectedParkDetails}`)
                     }
                 }
             }
