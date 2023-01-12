@@ -1,6 +1,6 @@
 import { getData, setData } from "./dataAccess.js";
-import { Attractions } from "./attractions/Attractions.js";
-import { Eateries } from "./eateries/Eatery.js";
+import { Attractions } from "./Attractions.js";
+import { Eateries } from "./Eatery.js";
 
 let foundParks = []
 let foundAttractions = []
@@ -23,8 +23,7 @@ export const SearchResults = () => {
                         <div class="searchResults">
                             <p>${parkObj.fullName}</p>
                             <button class="button" id="addPark" name="${parkObj.id}">Add to Itinerary Preview</button>
-                        </div>
-                        <hr>`
+                        </div>`
                     }
                  ).join("")}
 
@@ -35,8 +34,7 @@ export const SearchResults = () => {
                         <div class="searchResults">
                             <p>${attractionObj.name}</p>
                             <button class="button" id="addAttraction" name="${attractionObj.id}">Add to Itinerary Preview</button>
-                        </div>
-                        <hr>`
+                        </div>`
                     }
                  ).join("")}
                 <h3>Matching Eateries</h3>  
@@ -46,8 +44,7 @@ export const SearchResults = () => {
                         <div class="searchResults">
                             <p>${eateryObj.businessName}</p>
                             <button class="button" id="addEatery" name="${eateryObj.id}">Add to Itinerary Preview</button>
-                        </div>
-                        <hr>`
+                        </div>`
                     }
                  ).join("")}
     `

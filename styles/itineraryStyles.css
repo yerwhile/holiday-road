@@ -1,6 +1,16 @@
 #itineraryPreview, #savedItineraries {
-    background-color: #6CC777;
-    border: 1px solid #4E2813;
+    background-color: #6CC777
+}
+
+.itinHeader {
+    margin-bottom: 5px;
+    text-shadow: rgb(80, 159, 63) 1px 0 10px; 
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.itinSelector {
+    font-weight: bold;
 }
 
 /* --------- Previewed Itineraries -------------------------------------- */
@@ -8,9 +18,11 @@
 #itinPreview {
     background-color: #b3cdb6;
     padding: 10px;
+    margin: 5px;
     border: 1px solid #4E2813;
     text-align: center;
 }
+
 
 .itin-text-shadow {
     color: #4E2813;
@@ -22,17 +34,16 @@
 
 .savedItinerary {
     background-color: #b3cdb6;
+    border-radius: 25%;
     box-sizing: border-box;
     padding: 10px;
-    margin: 5px;
     min-width: 100px;
-    width: 49%;
+    margin: 5px;
+    width: calc(50% - 20px);
     border: 1px solid #4E2813;
     text-align: center;
 }
 
-.Itin-num {
-    color: #4E2813;
-    margin-bottom: 5px;
-    text-shadow: rgb(80, 159, 63) 1px 0 10px; 
+.itinLine {
+    margin: 7px 0px;
 }
