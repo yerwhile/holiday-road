@@ -3,21 +3,26 @@ import { getData, applicationState, mainContainer, postData, setData } from "./d
 
 export const ItineraryPreview = () => {
     const parks = getData("parks").data;
-    const selectedPark = parks.find(park => park.id === applicationState.chosenPark);
+
+    const chosenPark = getData("chosenPark");
+    const chosenAttraction = getData("chosenAttraction");
+    const chosenEatery = getData("chosenEatery");
+
+    const selectedPark = parks.find(park => park.id === chosenPark);
     let selectedParkName = "";
 
-    if (applicationState.chosenPark !== undefined && applicationState.chosenPark !== "0") {
+    if (chosenPark !== undefined && chosenPark !== "0") {
         selectedParkName = selectedPark.fullName;
     }
 
     const attractions = getData("attractions");
     let selectedAttractionName = "";
-    if(applicationState.chosenPark === "0") {
+    if(chosenPark === "0") {
         selectedAttractionName = "";
     }
     else {
         for (const attraction of attractions) {
-            if (attraction.id === parseInt(applicationState.chosenAttraction)) {
+            if (attraction.id === parseInt(chosenAttraction)) {
                 selectedAttractionName = attraction.name;
             }
         }
@@ -25,22 +30,23 @@ export const ItineraryPreview = () => {
 
     const eateries = getData("eateries");
     let selectedEateryName = "";
-    if(applicationState.chosenPark === "0") {
+    if(chosenPark === "0") {
         selectedEateryName = "";
     }
     else {
         for (const eatery of eateries) {
-            if (eatery.id === parseInt(applicationState.chosenEatery)) {
+            if (eatery.id === parseInt(chosenEatery)) {
                 selectedEateryName = eatery.businessName;
             }
         }
     }
     return `
-        <div id="itinPreview"><div class="itin-text-shadow">Itinerary Preview</div>
-        <div id="parkPreview">Selected Park: ${selectedParkName} <button class="details-btn" id="details-btn-park">Details</button></div>
-        <div id="attractionPreview">Selected Attraction: ${selectedAttractionName} <button class="details-btn" id="details-btn-attraction">Details</button></div>
-        <div id="eateryPreview">Selected Eatery: ${selectedEateryName} <button class="details-btn" id="details-btn-eatery">Details</button></div>
-        <button class="button" id="submitItinerary">Save Itinerary</button>
+        <div id="itinPreview">
+            <div class="itinHeader">Itinerary Preview</div>
+            <div id="parkPreview"><span class="itinSelector">Selected Park:</span> ${selectedParkName} <button class="details-btn" id="details-btn-park">Details</button></div>
+            <div id="attractionPreview"><span class="itinSelector">Selected Attraction:</span> ${selectedAttractionName} <button class="details-btn" id="details-btn-attraction">Details</button></div>
+            <div id="eateryPreview"><span class="itinSelector">Selected Eatery:</span> ${selectedEateryName} <button class="details-btn" id="details-btn-eatery">Details</button></div>
+            <button class="button" id="submitItinerary">Save Itinerary</button>
         </div>`
 }
 
@@ -89,9 +95,10 @@ mainContainer.addEventListener(
     (event) => {
         if (event.target.id === "details-btn-eatery") {
             const eateries = getData("eateries");
+            const chosenEatery = getData("chosenEatery");
             let selectedEateryDetails = "";
             for (const eatery of eateries) {
-                if (eatery.id === parseInt(applicationState.chosenEatery)) {
+                if (eatery.id === parseInt(chosenEatery)) {
                     selectedEateryDetails = eatery.description;
                     window.alert(`${selectedEateryDetails}`)
                 }
@@ -104,9 +111,10 @@ mainContainer.addEventListener(
     (event) => {
         if (event.target.id === "details-btn-attraction") {
             const attractions = getData("attractions");
+            const chosenAttraction = getData("chosenAttraction");
             let selectedAttractionDetails = "";
             for (const attraction of attractions) {
-                if (attraction.id === parseInt(applicationState.chosenAttraction)) {
+                if (attraction.id === parseInt(chosenAttraction)) {
                     selectedAttractionDetails = attraction.description;
                     window.alert(`${selectedAttractionDetails}`)
                 }
@@ -119,9 +127,10 @@ mainContainer.addEventListener(
         (event) => {
             if (event.target.id === "details-btn-park") {
                 const parks = getData("parks").data;
+                const chosenPark = getData("chosenPark");
                 let selectedParkDetails = "";
                 for (const park of parks) {
-                    if (park.id === applicationState.chosenPark) {
+                    if (park.id === chosenPark) {
                         selectedParkDetails = park.description;
                         window.alert(`${selectedParkDetails}`)
                     }
