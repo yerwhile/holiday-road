@@ -1,6 +1,5 @@
 #itineraryPreview, #savedItineraries {
-    background-color: #6CC777;
-    border: 1px solid #4E2813;
+    background-color: #6CC777
 }
 
 .itinHeader {
@@ -19,14 +18,23 @@
 #itinPreview {
     background-color: #b3cdb6;
     padding: 10px;
+    margin: 5px;
     border: 1px solid #4E2813;
     text-align: center;
+}
+
+
+.itin-text-shadow {
+    color: #4E2813;
+    margin-bottom: 5px;
+    text-shadow: rgb(80, 159, 63) 1px 0 10px; 
 }
 
 /* --------- Saved Itineraries -------------------------------------- */
 
 .savedItinerary {
     background-color: #b3cdb6;
+    border-radius: 25%;
     box-sizing: border-box;
     padding: 10px;
     min-width: 100px;

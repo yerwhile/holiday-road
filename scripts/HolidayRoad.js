@@ -35,10 +35,12 @@ export const HolidayRoad = () => {
         <div id="directions">
             ${Directions()}
         </div>
-        <div id="searchForm">
-            ${UserSearch()}
-        </div> 
-        <div id="searchResults">
+        <div id="search">
+            <div id="searchForm">
+                ${UserSearch()}
+            </div> 
+            <div id="searchResults">
+            </div>
         </div>
     </div>
         <div id="savedItineraries">

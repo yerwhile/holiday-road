@@ -40,19 +40,27 @@ button:hover {
 
 /* Search section */
 
-.search {
-    background-color: #6CC777;
-    width: 75%;
-    position: relative;
-    left: 25%;
+#search {
+    background-color: #b3cdb6;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #4E2813;
+    text-align: center;
 }
 
 #searchResults {
     width: 50%;
-    background-color: #6CC777;
-    margin: 0;
-    border: 1px solid #4E2813;
+    margin: 0px;
     width:100%;
+    text-align: center;
+}
+
+.searchResults {
+    border: 1px solid;
+    border-radius: 25%;
+    width: 65%;
+    margin: 10px auto;
+    background-color: #d1eed4;
     text-align: center;
 }
 
