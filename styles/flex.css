@@ -1,0 +1,46 @@
+#logo {
+    align-items: center;
+    color: #4E2813;
+    display: flex;
+    font-family: 'Lilita One', cursive;
+    font-weight: bold;
+    font-size: 20px;
+    justify-content:flex-start;
+}
+
+/* Holds everything but logo */
+#overAll {
+    display: flex;
+    flex-direction: column;
+}
+
+#selectBoxes {
+    background-color:  #4E2813;
+    border: 1px solid #149419;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Holds format and saveditineraries */
+.wrap {
+    display: flex;
+    width: 100%;
+}
+
+/* Holds itineraries, directions, and user search */
+.format {
+    background-color: #6CC777;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+#itineraries {
+    display: flex;
+}
+
+#weatherForecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
