@@ -1,11 +1,20 @@
 #directions {
-    border-bottom: 1px solid #4E2813;
+    background-color: #b3cdb6;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #4E2813;
+    text-align: center;
 }
 
 #directions ul {
     padding-left: 20px;
+    text-align: left
 }
 
 #directions li {
     padding: 5px;
+}
+
+#directionsEmpty {
+    padding-top: 20px;
 }

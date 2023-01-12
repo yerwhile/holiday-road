@@ -26,7 +26,7 @@ export const ItineraryPreview = () => {
     const eateries = getData("eateries");
     let selectedEateryName = "";
     if(applicationState.chosenPark === "0") {
-        selectedAttractionName = "";
+        selectedEateryName = "";
     }
     else {
         for (const eatery of eateries) {
@@ -36,7 +36,7 @@ export const ItineraryPreview = () => {
         }
     }
     return `
-        <div id="itinPreview"><div class="itin-text-shadow">Itinerary Preview</div>
+        <div id="itinPreview"><h3>Itinerary Preview</h3>
         <div id="parkPreview">Selected Park: ${selectedParkName} <button class="details-btn" id="details-btn-park">Details</button></div>
         <div id="attractionPreview">Selected Attraction: ${selectedAttractionName} <button class="details-btn" id="details-btn-attraction">Details</button></div>
         <div id="eateryPreview">Selected Eatery: ${selectedEateryName} <button class="details-btn" id="details-btn-eatery">Details</button></div>

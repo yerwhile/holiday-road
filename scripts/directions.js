@@ -15,7 +15,11 @@ const formatInstruction = (instruction) => {
 
 export const Directions = () => {
     const directions = getData("directions");
-    let html = "<h2>Directions</h2>";
+    let html = "<h3>Directions</h3>";
+
+    if(directions === undefined) {
+        html += "<div id='directionsEmpty'>Click the 'Directions' button under any Saved Itinerary to see step-by-step what route you should take!</div>"
+    }
 
     if (directions !== undefined) {
         const instructions = directions.paths[0].instructions;
