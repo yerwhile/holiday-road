@@ -4,7 +4,7 @@
     format function turns each park into an option with a value equal to the park id
 */
 
-import { getData, mainContainer, setData } from "../dataAccess.js"
+import { getData, mainContainer, setData } from "./dataAccess.js"
 
 export const selectParks = () => {
     const parks = getData("parks").data;

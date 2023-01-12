@@ -1,4 +1,4 @@
-import { getData, mainContainer, setData } from "../dataAccess.js"
+import { getData, mainContainer, setData } from "./dataAccess.js"
 // import { getStateByChosenPark } from "../attractions/Attractions.js"
 
 export const Eateries = () => {
@@ -9,7 +9,7 @@ export const Eateries = () => {
     let html = `
     <label class="label" for="eateriesSelect"></label>`
     if(typeof chosenPark === 'undefined' || chosenPark === 0) {
-        html += `<select name="eateriesSelect" id="eateries" disabled>`
+        html += `<select name="eateriesSelect" id="eateries">`
         setData("chosenEatery", undefined);
     }
     else {

@@ -1,18 +1,17 @@
 import { fetchData, fetchForeignData, getData } from "./dataAccess.js"
-import { fetchEateries } from "./eateries/EateryProvider.js"
 import { HolidayRoad } from "./HolidayRoad.js"
 import Settings from "./Settings.js"
 import { ItineraryPreview } from "./ItineraryPreview.js"
-import { Attractions } from "./attractions/Attractions.js"
-import { Eateries } from "./eateries/Eatery.js"
-import { Weather } from "./weather/weather.js"
-import { selectParks } from "./parks/parks.js"
+import { Attractions } from "./Attractions.js"
+import { Eateries } from "./Eatery.js"
+import { Weather } from "./weather.js"
+import { selectParks } from "./parks.js"
 import { Directions } from "./directions.js"
 
 export const mainContainer = document.querySelector("#container")
 
 const render = () => {
-    fetchEateries()
+    fetchForeignData("http://holidayroad.nss.team/eateries", "eateries")
         .then(() => fetchForeignData("http://holidayroad.nss.team/bizarreries", "attractions"))
         .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/parks?limit=500&api_key=${Settings.npsKey}`, "parks"))
         .then(() => fetchData("itineraries"))
@@ -21,7 +20,6 @@ const render = () => {
                 mainContainer.innerHTML = HolidayRoad()
             }
         )
-
 }
 
 render()
