@@ -26,7 +26,7 @@ export const ItineraryPreview = () => {
     const eateries = getData("eateries");
     let selectedEateryName = "";
     if(applicationState.chosenPark === "0") {
-        selectedAttractionName = "";
+        selectedEateryName = "";
     }
     else {
         for (const eatery of eateries) {

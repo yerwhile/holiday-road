@@ -1,9 +1,9 @@
 // import APIkeys from "./Settings.js";
 
-import { selectParks } from "./parks/parks.js"
-import { Attractions } from "./attractions/Attractions.js"
+import { selectParks } from "./parks.js"
+import { Attractions } from "./Attractions.js"
 import { ItineraryPreview } from "./ItineraryPreview.js"
-import { Eateries } from "./eateries/Eatery.js"
+import { Eateries } from "./Eatery.js"
 import { savedItineraries } from "./savedItineraries.js"
 import { UserSearch } from "./UserSearch.js"
 import { Directions } from "./directions.js"
