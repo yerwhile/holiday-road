@@ -10,7 +10,7 @@ import { getData } from "./dataAccess.js"
 */
 
 const formatInstruction = (instruction) => {
-    return `<div>${instruction.text}</div>`
+    return `<li>${instruction.text}</li>`
 }
 
 export const Directions = () => {
@@ -20,7 +20,9 @@ export const Directions = () => {
     if (directions !== undefined) {
         const instructions = directions.paths[0].instructions;
 
+        html += "<ul>"
         html += instructions.map((instruction) => formatInstruction(instruction)).join("");
+        html += "</ul>"
     }
 
     return html;
