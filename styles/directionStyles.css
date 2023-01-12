@@ -1,0 +1,11 @@
+#directions {
+    border-bottom: 1px solid #4E2813;
+}
+
+#directions ul {
+    padding-left: 20px;
+}
+
+#directions li {
+    padding: 5px;
+}

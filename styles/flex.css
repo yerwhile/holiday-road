@@ -18,7 +18,9 @@
     background-color:  #4E2813;
     border: 1px solid #149419;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+    padding: 10px 10px 0px 10px;
 }
 
 /* Holds format and saveditineraries */
@@ -27,12 +29,26 @@
     width: 100%;
 }
 
+#savedItineraries {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+/* Holds itin info and empty div */
+.savedItinerary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 /* Holds itineraries, directions, and user search */
 .format {
     background-color: #6CC777;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 40%;
 }
 
 #itineraries {
