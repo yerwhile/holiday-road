@@ -115,8 +115,9 @@ mainContainer.addEventListener(
             const [, parkID] = event.target.name.split('--')
             const parks = getData("parks").data
             const parkFound = parks.find((park) => park.id === parkID)
-            fetchForeignData(`https://developer.nps.gov/api/v1/events?&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks")
-                .then(() => {
+            fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks")
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=2&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
                     const events = getData("eventParks").data
                     if (events[0] === undefined) {
                         window.alert("No Events Currently Booked At This Park, it's January, WHATTT ARRRRE YOU THINKKKING!:)")
