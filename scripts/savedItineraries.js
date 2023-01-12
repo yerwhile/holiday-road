@@ -19,10 +19,10 @@ const formatItinerary = (itinerary) => {
         <div class="savedItinerary">
             <div class="savedItineraryCont">
                 <div class="itinInfo">
-                    <div class="Itin-num">Itinerary #${itinerary.id}</div>
-                    <div>Park: ${itinPark.fullName}</div>
-                    <div>Attraction: ${itinAttraction.name}</div>
-                    <div>Eatery: ${itinEateries.businessName}</div>
+                    <div class="itinHeader">Itinerary #${itinerary.id}</div>
+                    <div class="itinLine itinPark"><span class="itinSelector">Park:</span> ${itinPark.fullName}</div>
+                    <div class="itinLine itinAttraction"><span class="itinSelector">Attraction:</span> ${itinAttraction.name}</div>
+                    <div class="itinLine itinEatery"><span class="itinSelector">Eatery:</span> ${itinEateries.businessName}</div>
                 </div>
                 <div>
                     <button class="button" id="eventsBtn" name="events--${itinPark.id}">See Events</button>

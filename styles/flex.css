@@ -30,8 +30,10 @@
 }
 
 #savedItineraries {
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     width: 60%;
 }
 
@@ -41,7 +43,6 @@
     flex-direction: column;
     justify-content: center;
 }
-
 
 /* Holds itineraries, directions, and user search */
 .format {

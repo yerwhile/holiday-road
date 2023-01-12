@@ -26,7 +26,7 @@ export const ItineraryPreview = () => {
     const eateries = getData("eateries");
     let selectedEateryName = "";
     if(applicationState.chosenPark === "0") {
-        selectedAttractionName = "";
+        selectedEateryName = "";
     }
     else {
         for (const eatery of eateries) {
@@ -36,11 +36,12 @@ export const ItineraryPreview = () => {
         }
     }
     return `
-        <div id="itinPreview"><div class="itin-text-shadow">Itinerary Preview</div>
-        <div id="parkPreview">Selected Park: ${selectedParkName} <button class="details-btn" id="details-btn-park">Details</button></div>
-        <div id="attractionPreview">Selected Attraction: ${selectedAttractionName} <button class="details-btn" id="details-btn-attraction">Details</button></div>
-        <div id="eateryPreview">Selected Eatery: ${selectedEateryName} <button class="details-btn" id="details-btn-eatery">Details</button></div>
-        <button class="button" id="submitItinerary">Save Itinerary</button>
+        <div id="itinPreview">
+            <div class="itinHeader">Itinerary Preview</div>
+            <div id="parkPreview"><span class="itinSelector">Selected Park:</span> ${selectedParkName} <button class="details-btn" id="details-btn-park">Details</button></div>
+            <div id="attractionPreview"><span class="itinSelector">Selected Attraction:</span> ${selectedAttractionName} <button class="details-btn" id="details-btn-attraction">Details</button></div>
+            <div id="eateryPreview"><span class="itinSelector">Selected Eatery:</span> ${selectedEateryName} <button class="details-btn" id="details-btn-eatery">Details</button></div>
+            <button class="button" id="submitItinerary">Save Itinerary</button>
         </div>`
 }
 
