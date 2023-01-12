@@ -19,7 +19,7 @@ const formatItinerary = (itinerary) => {
         <div class="savedItinerary">
             <div class="savedItineraryCont">
                 <div class="itinInfo">
-                    <div class="Itin-num">Itinerary #${itinerary.id}</div>
+                    <div class="Itin-num">Saved Itinerary #${itinerary.id}</div>
                     <div>Park: ${itinPark.fullName}</div>
                     <div>Attraction: ${itinAttraction.name}</div>
                     <div>Eatery: ${itinEateries.businessName}</div>
