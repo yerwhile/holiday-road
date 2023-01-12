@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Lobster&family=Pacifico&family=Seymour+One&display=swap');
 
+body {
+    background-image: url(https://getwallpapers.com/wallpaper/full/3/7/d/166697.jpg);
+}
 
 #selectBoxes {
     display: flex;
