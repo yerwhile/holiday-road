@@ -1,4 +1,4 @@
-import { applicationState, getData } from "../dataAccess.js"
+import { getData } from "../dataAccess.js"
 
 
 export const Weather = () => {
