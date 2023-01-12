@@ -1,0 +1,16 @@
+#weatherForecast {
+    border: 1px solid #4E2813;
+    background-color: #6CC777;
+}
+
+.weatherDay {
+    border: dotted 2px #4E2813;
+    border-radius: 10% 30% 50% 70%;
+    padding: 35px;
+    margin: 20px;
+    background-color: #b3cdb6;
+}
+
+.weatherDayHeader {
+    text-shadow: rgb(80, 159, 63) 1px 0 10px;      
+}
