@@ -47,7 +47,12 @@ export const HolidayRoad = () => {
         ${savedItineraries()}
         </div>
 </div>
+    <div id="weatherHeader">
+        <h2 class='itinHeader'>Weather</h2>
+        <div>Choose a park to see the weather forecast below.</div>
+    </div>
     <div id="weatherForecast">  
+        
     </div>
 </div>
   `
