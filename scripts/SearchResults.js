@@ -1,6 +1,6 @@
 import { getData, setData } from "./dataAccess.js";
-import { Attractions } from "./attractions/Attractions.js";
-import { Eateries } from "./eateries/Eatery.js";
+import { Attractions } from "./Attractions.js";
+import { Eateries } from "./Eatery.js";
 
 let foundParks = []
 let foundAttractions = []

@@ -5,12 +5,10 @@ import { fetchForeignData } from "./dataAccess.js";
 export const UserSearch = () => {
 
     return `
-    <div class="search">
+        <h2>Search</h2>
         <label for="site-search">Search All Destinations:</label>
         <input type="search" id="site-search" name="q">
-        <button class="button" id="searchButton">Search</button>
-    </div>`
-
+        <button class="button" id="searchButton">Search</button>`
 }
 
 document.addEventListener("click", e => {

@@ -1,4 +1,23 @@
-/* Button styles */
+/* Button/input styles */
+
+button, select {
+    padding: 5px;
+}
+
+button {
+    margin: 5px 10px;
+    font-size: 14px;
+}
+
+select {
+    min-width: 150px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#parkSelect, #attractionSelect, #eaterySelect {
+    width: 33%;
+}
 
 .details-btn {
     border-radius: 20px;
@@ -15,11 +34,11 @@ select:hover {
 }
 
 button:hover {
-    background-color: bisque;
+    border: 3px solid bisque;
     cursor: pointer;
 }
 
-/* Select section */
+/* Search section */
 
 .search {
     background-color: #6CC777;

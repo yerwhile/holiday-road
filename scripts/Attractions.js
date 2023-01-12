@@ -1,4 +1,4 @@
-import { getData, mainContainer, setData } from "../dataAccess.js";
+import { getData, mainContainer, setData } from "./dataAccess.js";
 
 // export const getStateByChosenPark = () => {
 //     const parks = getData("parks").data;
@@ -20,7 +20,7 @@ export const Attractions = () => {
     let html = `
     <label class="label" for="attractionsSelect"></label>`
     if(typeof chosenPark === 'undefined' || parseInt(chosenPark) === 0) {
-        html += `<select name="attractionSelect" id="attractions" disabled>`
+        html += `<select name="attractionSelect" id="attractions">`
         setData("chosenAttraction", undefined)
     }
     else {
