@@ -17,15 +17,17 @@ const formatItinerary = (itinerary) => {
 
     return `
         <div class="savedItinerary">
-            <div class="itinInfo">
-                <div class="Itin-num">Itinerary #${itinerary.id}</div>
-                <div>Park: ${itinPark.fullName}</div>
-                <div>Attraction: ${itinAttraction.name}</div>
-                <div>Eatery: ${itinEateries.businessName}</div>
-            </div>
-            <div>
-                <button class="button" id="eventsBtn" name="events--${itinPark.id}">See Events</button>
-                <button class="button" id="directionsButton" name="itin--${itinerary.id}">Get Directions</button>
+            <div class="savedItineraryCont">
+                <div class="itinInfo">
+                    <div class="Itin-num">Itinerary #${itinerary.id}</div>
+                    <div>Park: ${itinPark.fullName}</div>
+                    <div>Attraction: ${itinAttraction.name}</div>
+                    <div>Eatery: ${itinEateries.businessName}</div>
+                </div>
+                <div>
+                    <button class="button" id="eventsBtn" name="events--${itinPark.id}">See Events</button>
+                    <button class="button" id="directionsButton" name="itin--${itinerary.id}">Get Directions</button>
+                </div>
             </div>
         </div>`
 }
