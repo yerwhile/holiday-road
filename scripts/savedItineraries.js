@@ -112,11 +112,76 @@ mainContainer.addEventListener(
     "click",
     (event) => {
         if (event.target.id === "eventsBtn") {
+            const events = []
+            const eventParks = null
             const [, parkID] = event.target.name.split('--')
             const parks = getData("parks").data
             const parkFound = parks.find((park) => park.id === parkID)
             fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks")
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
             .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=2&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=3&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=4&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=5&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=6&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=7&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=8&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=9&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=10&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=11&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=12&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=13&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                eventParks = getData("eventParks").data;
+                events.push(eventParks)
+            })
             .then(() => {
                     const events = getData("eventParks").data
                     if (events[0] === undefined) {
