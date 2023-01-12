@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Lobster&family=Pacifico&family=Seymour+One&display=swap');
 
+body {
+    background-image: url("http://cdn.cnn.com/cnnnext/dam/assets/220218162824-01-national-parks-fees.jpg");
+    image-rendering: -webkit-optimize-contrast;
+}
 
 #selectBoxes {
     display: flex;
@@ -24,7 +28,7 @@ select:hover {
 
 #itineraryPreview, #savedItineraries {
     border: 1px solid #6CC777;
-    background-color: #6CC777;
+    background-color: rgba(219, 225, 219, 0.023);
     min-width: 350px;
     border: 1px solid #4E2813;
 }
@@ -76,12 +80,13 @@ select:hover {
 
 #logo {
     font-family: 'Lilita One', cursive;
-    color: #4E2813;
+    color: #bbd538;
     font-weight: bold;
     font-size: 20px;
     display: flex;
     justify-content:flex-start;
     align-items: center;
+    background: rgba(236, 241, 230, 0.023);
 }
 
 #parkPreview, #eateryPreview, #attractionPreview {
@@ -125,7 +130,7 @@ select:hover {
 
 
 .search {
-    background-color: #6CC777;
+    background-color: rgba(76, 175, 80, 0.3);
     width: 75%;
     position: relative;
     left: 25%;
@@ -150,7 +155,7 @@ select:hover {
 }
 
 .format {
-    background-color: #6CC777;
+    background: rgba(76, 175, 80, 0.3);
     display: flex;
     flex-direction: column;
     width: 50%;
