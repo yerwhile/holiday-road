@@ -24,7 +24,7 @@ export const Directions = () => {
     if (directions !== undefined) {
         const instructions = directions.paths[0].instructions;
 
-        html += "<ul>"
+        html += "<ul id='directions--ul'>"
         html += instructions.map((instruction) => formatInstruction(instruction)).join("");
         html += "</ul>"
     }
