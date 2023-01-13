@@ -7,8 +7,6 @@ export const Weather = () => {
     const array = [7, 15, 23, 31, 39]
     let html = ""
 
-    
-
     for (const arr of array) {
         //tie weathers and array together 
         const firstTemp = weathers[arr].main.temp
@@ -25,7 +23,6 @@ export const Weather = () => {
 
     }
     return html
-
 }
 
 const getDayOfWeek = (date) => {
