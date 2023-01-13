@@ -124,8 +124,17 @@ mainContainer.addEventListener(
                     if (events[0].feeinfo !== "") {
                         window.alert(`Title: ${events[0].title} \nDate: ${events[0].datestart} \nTime: ${events[0].times[0].timestart}  \nEnd: ${events[0].times[0].timeend} \n Description: ${events[0].description} \nFee Info: ${events[0].feeinfo}`)
                     }
-                    else {
+                    if (events[0].isfree === "true") {
                         window.alert(`Title: ${events[0].title} \nDate: ${events[0].datestart} \nTime: ${events[0].times[0].timestart}  \nEnd: ${events[0].times[0].timeend} \n Description: ${events[0].description} \nFree`)
+                    }
+                    if (events[1] === undefined) {
+                       // window.alert("No More Events Currently Booked At This Park, check again soon!")
+                    }
+                    if (events[1].feeinfo !== "") {
+                        window.alert(`Title: ${events[1].title} \nDate: ${events[1].datestart} \nTime: ${events[1].times[0].timestart}  \nEnd: ${events[1].times[0].timeend} \n Description: ${events[1].description} \nFee Info: ${events[1].feeinfo}`)
+                    }
+                    else {
+                        window.alert(`Title: ${events[1].title} \nDate: ${events[1].datestart} \nTime: ${events[1].times[0].timestart}  \nEnd: ${events[1].times[0].timeend} \n Description: ${events[1].description} \nFree`)
                     }
                 })
         }
