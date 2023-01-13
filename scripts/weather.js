@@ -3,9 +3,16 @@ import { getData } from "./dataAccess.js"
 
 export const Weather = () => {
     const weathers = getData("weather").list
+    const chosenPark = getData("chosenPark");
+    const parks = getData("parks").data;
+
+    const foundPark = parks.find((park) => park.id === chosenPark)
 
     const array = [7, 15, 23, 31, 39]
-    let html = ""
+    let html = `<div id ="weatherHeader">
+                    <h2 class='itinHeader'>Weather Forecast for ${foundPark.fullName}</h2>
+                </div>
+                <div id="weatherForecast">`
 
     for (const arr of array) {
         //tie weathers and array together 
@@ -22,6 +29,8 @@ export const Weather = () => {
                 </div>`
 
     }
+
+    html += "</div>"
     return html
 }
 

@@ -49,7 +49,7 @@ mainContainer.addEventListener(
             const lat = selectedPark.latitude;
             const lon = selectedPark.longitude;
             fetchForeignData(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${Settings.weatherKey}`, "weather")
-            .then(() => document.querySelector('#weatherForecast').innerHTML = Weather())
+            .then(() => document.querySelector('#weatherMain').innerHTML = Weather())
 
             document.querySelector('#attractionsSelect').innerHTML = Attractions();
             document.querySelector('#eaterySelect').innerHTML = Eateries();
