@@ -15,7 +15,7 @@ const formatInstruction = (instruction) => {
 
 export const Directions = () => {
     const directions = getData("directions");
-    let html = "<h3>Directions</h3>";
+    let html = "<h3 class='itinHeader'>Directions</h3>";
 
     if(directions === undefined) {
         html += "<div id='directionsEmpty'>Click the 'Directions' button under any Saved Itinerary to see step-by-step what route you should take!</div>"
