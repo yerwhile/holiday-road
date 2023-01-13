@@ -4,7 +4,7 @@
 */
 
 import Settings from "./Settings.js";
-import { applicationState, fetchForeignData, getData, mainContainer } from "./dataAccess.js";
+import { fetchForeignData, getData, mainContainer, setData } from "./dataAccess.js";
 
 const formatItinerary = (itinerary) => {
     const parks = getData("parks").data;
@@ -65,6 +65,8 @@ mainContainer.addEventListener(
             const itinPark = parks.find(park => park.id === itinerary.parkId);
             const itinAttraction = attractions.find(attraction => attraction.id === itinerary.attractionId);
             const itinEateries = eateries.find(eatery => eatery.id === itinerary.eateryId)
+
+            setData("chosenItinerary", itinerary)
 
             // get park coords
             const parkLat = itinPark.latitude;

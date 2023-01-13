@@ -12,19 +12,22 @@ import { getData } from "./dataAccess.js"
 const formatInstruction = (instruction) => {
     return `<li>${instruction.text}</li>`
 }
-
+let html = ""
 export const Directions = () => {
     const directions = getData("directions");
-    let html = "<h3 class='itinHeader'>Directions</h3>";
+    const chosenItinerary = getData("chosenItinerary");
+    html = "";
 
     if(directions === undefined) {
-        html += "<div id='directionsEmpty'>Click the 'Directions' button under any Saved Itinerary to see step-by-step what route you should take!</div>"
+        html += `<h3 class='itinHeader'>Directions</h3>
+                <div id='directionsEmpty'>Click the 'Directions' button under any Saved Itinerary to see step-by-step what route you should take!</div>`
     }
 
     if (directions !== undefined) {
         const instructions = directions.paths[0].instructions;
 
-        html += "<ul id='directions--ul'>"
+        html += `<h3 class='itinHeader'>Directions for Saved Itinerary #${chosenItinerary.id}</h3>
+                <ul id='directions--ul'>`
         html += instructions.map((instruction) => formatInstruction(instruction)).join("");
         html += "</ul>"
     }
