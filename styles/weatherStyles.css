@@ -2,11 +2,11 @@
     background-color: #6CC777;
     text-align:center;
     border-top: 1px solid #4E2813;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 #weatherForecast {
-    border: 1px solid #4E2813;
+    /* border: 1px solid #4E2813; */
     background-color: #6CC777;
 }
 
@@ -20,4 +20,8 @@
 
 .weatherDayHeader {
     text-shadow: rgb(80, 159, 63) 1px 0 10px;      
+}
+
+#weatherEmpty {
+    margin: 15px;
 }
