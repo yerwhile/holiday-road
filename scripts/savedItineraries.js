@@ -182,6 +182,28 @@ mainContainer.addEventListener(
 //         }
 // })
 
-
+mainContainer.addEventListener(
+    "click",
+    (event) => {
+        if (event.target.id === "eventsBtn") {
+            const [, parkID] = event.target.name.split('--')
+            const parks = getData("parks").data
+            const parkFound = parks.find((park) => park.id === parkID)
+            fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks")
+            .then(() => fetchForeignData(`https://developer.nps.gov/api/v1/events?pageSize=50&pageNumber=2&parkCode=${parkFound.parkCode}&api_key=${Settings.npsKey}`, "eventParks"))
+            .then(() => {
+                    const events = getData("eventParks").data
+                    if (events[0] === undefined) {
+                        window.alert("No Events Currently Booked At This Park, it's January, WHATTT ARRRRE YOU THINKKKING!:)")
+                    }
+                    if (events[0].feeinfo !== "") {
+                        window.alert(`Title: ${events[0].title} \nDate: ${events[0].datestart} \nTime: ${events[0].times[0].timestart}  \nEnd: ${events[0].times[0].timeend} \n Description: ${events[0].description} \nFee Info: ${events[0].feeinfo}`)
+                    }
+                    else {
+                        window.alert(`Title: ${events[0].title} \nDate: ${events[0].datestart} \nTime: ${events[0].times[0].timestart}  \nEnd: ${events[0].times[0].timeend} \n Description: ${events[0].description} \nFree`)
+                    }
+                })
+        }
+})
 
 
